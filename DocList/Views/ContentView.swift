@@ -9,89 +9,70 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var viewModel: HomeViewModel
+    
     @State private var selectedTab = 0
     @State private var searchText = ""
     
     var body: some View {
         TabView(selection: $selectedTab) {
             
-            
-            /*
-            NavigationStack {
-                List(doctorsListExample) { doctor in
-                    NavigationLink(destination: DoctorDetailsView()) {
-                        VStack {
-                            HStack {
-                                AsyncImage(url: URL(string: doctor.avatar)) { image in
-                                    image.image?
-                                        .resizable()
-                                        .scaledToFill()
-                                }
-                                    .frame(width: 50, height: 50)
-                                    .clipShape(.circle)
-                                VStack(alignment: .leading) {
-                                    Text(doctor.fullName)
-                                        .listRowSeparator(.hidden)
-                                    Text("стаж \(doctor.seniority) лет")
-                                }
-                                Button(action: {}) {
-                                    Image(systemName: "heart")
-                                }
-                            }
-                            
-                        }
-                        
-                    }
-                    //.listRowBackground(Color(.red))
-                }
-                
-                .navigationTitle("Педиатры")
-                .navigationBarTitleDisplayMode(.inline)
-            }
-            */
             ScrollView {
                 LazyVStack(spacing: 16) {
-                    ForEach(doctorsListMock) { doctor in
+                    ForEach(viewModel.doctors) { doctor in
                         DoctorCellView()
                     }
                 }
             }.background(Color.iLightGray)
             
-            
-            .tabItem {
-                Image(systemName: "house")
-                Text("Главная")
-            }
-            .tag(0)
-            
-            
-            
-            
-            
-            Text("")
                 .tabItem {
-                    Image(systemName: "calendar")
+                    Image(.homeTab)
+                        .renderingMode(.template)
+                    Text("Главная")
+                }
+                .tag(0)
+            
+            
+            
+            
+            
+            Text("Приёмы")
+                .tabItem {
+                    Image(.visitsTabC)
+                        .renderingMode(.template)
                     Text("Приёмы")
                 }
                 .tag(1)
-            Text("")
+            Text("Чат")
                 .tabItem {
                     Image(systemName: "message")
                     Text("Чат")
                 }
                 .tag(2)
-            Text("")
+            Text("Профиль")
                 .tabItem {
-                    Image(systemName: "person")
+                    Image(.profileTab)
+                        .renderingMode(.template)
                     Text("Профиль")
                 }
                 .tag(3)
-                
+            
+        }
+        .accentColor(.iPink)
+        .onAppear() {
+            UITabBar.appearance().isTranslucent = false
+            UITabBar.appearance().barTintColor = .iWhite
+            //UITabBar.appearance().barStyle = .black
+            UITabBar.appearance().backgroundImage = UIImage(named: "transparent")
+            UITabBar.appearance().shadowImage = UIImage(named: "grayShadow")
+        }
+        .overlay(alignment: .bottom) {
+            CustomTabView(selectedTab: $selectedTab)
         }
         
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewModel: HomeViewModel())
 }

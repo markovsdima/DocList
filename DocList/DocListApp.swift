@@ -11,7 +11,7 @@ import SwiftUI
 struct DocListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: HomeViewModel())
         }
     }
 }
