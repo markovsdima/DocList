@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct DoctorCellView: View {
-    var doctor = doctorCellDemo
+    @State var doctor: DoctorCellModel
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.white)
                 .stroke(Color.iGray, lineWidth: 1)
-                
+            
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
                     
@@ -17,23 +17,25 @@ struct DoctorCellView: View {
                             .resizable()
                             .scaledToFill()
                     }
-                        .frame(width: 50, height: 50)
-                        .clipShape(.circle)
+                    .frame(width: 50, height: 50)
+                    .clipShape(.circle)
                     
                     
                     VStack(alignment: .leading) {
                         Text(doctor.fullName)
                             .font(.h4)
-                            
-                        RatingView()
+                            .lineSpacing(5)
+                            .padding(.bottom, 4)
+                        
+                        RatingView(rating: Int(round(doctor.rating)))
                         
                         Text("\(doctor.specialization)" + "・" + "стаж \(doctor.seniority) лет")
                             .font(.sub2)
                             .foregroundStyle(.iDarkGray)
-                            //.padding(.top, 8)
+                        
                         Text("от \(String(doctor.price)) ₽")
                             .font(.h4)
-                            .padding(.top, 8)
+                            .padding(.top, 1)
                             .padding(.bottom, 8)
                         
                     }
@@ -44,7 +46,7 @@ struct DoctorCellView: View {
                         Image(systemName: "heart")
                             .resizable()
                             .tint(.iSilver)
-                            
+                        
                             .scaledToFit()
                             .frame(width: 24, height: 24)
                     }
@@ -54,8 +56,8 @@ struct DoctorCellView: View {
                     Text("Записаться")
                         .font(.h4)
                         .frame(maxWidth: .infinity)
-                        
-                        
+                    
+                    
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
@@ -72,11 +74,11 @@ struct DoctorCellView: View {
 }
 
 #Preview {
-    DoctorCellView()
+    DoctorCellView(doctor: doctorCellDemo)
 }
 
 struct RatingView: View {
-    var rating: Int = 4
+    @State var rating: Int
     let maximumRating = 5
     let onColor = Color.iPink
     let offColor = Color.iDarkGray
@@ -90,7 +92,6 @@ struct RatingView: View {
                 
             }
         }
-        .padding(.bottom, 8)
-        .padding(.top, 8)
+        .padding(.bottom, 4)
     }
 }
