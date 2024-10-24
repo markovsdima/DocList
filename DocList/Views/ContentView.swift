@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var selectedTab = 0
     @State private var searchText = ""
     
+    @State private var chatCount: Int = 1
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             
@@ -23,51 +25,25 @@ struct ContentView: View {
                         DoctorCellView()
                     }
                 }
-            }.background(Color.iLightGray)
+            }
+            .background(Color.iLightGray)
+            .tag(0)
             
-                .tabItem {
-                    Image(.homeTab)
-                        .renderingMode(.template)
-                    Text("Главная")
-                }
-                .tag(0)
-            
-            
-            
-            
-            
-            Text("Приёмы")
-                .tabItem {
-                    Image(.visitsTabC)
-                        .renderingMode(.template)
-                    Text("Приёмы")
-                }
-                .tag(1)
-            Text("Чат")
-                .tabItem {
-                    Image(systemName: "message")
-                    Text("Чат")
-                }
-                .tag(2)
-            Text("Профиль")
-                .tabItem {
-                    Image(.profileTab)
-                        .renderingMode(.template)
-                    Text("Профиль")
-                }
-                .tag(3)
+
+            Text("Приёмы").tag(1)
+            Text("Чат").tag(2)
+            Text("Профиль").tag(3)
             
         }
         .accentColor(.iPink)
         .onAppear() {
             UITabBar.appearance().isTranslucent = false
             UITabBar.appearance().barTintColor = .iWhite
-            //UITabBar.appearance().barStyle = .black
             UITabBar.appearance().backgroundImage = UIImage(named: "transparent")
             UITabBar.appearance().shadowImage = UIImage(named: "grayShadow")
         }
         .overlay(alignment: .bottom) {
-            CustomTabView(selectedTab: $selectedTab)
+            CustomTabView(selectedTab: $selectedTab, chatCount: $chatCount)
         }
         
     }

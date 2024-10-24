@@ -10,6 +10,15 @@ import SwiftUI
 struct CustomTabView: View {
     
     @Binding var selectedTab: Int
+    @Binding var chatCount: Int
+    
+    var chatImage: Image {
+        if chatCount > 0 {
+            return Image(.chatTab)
+        } else {
+            return Image(.chatEmptyTab)
+        }
+    }
     
     let tabBarItems: [(image: String, title: String)] = [
         ("homeTab","Главная"),
@@ -75,20 +84,25 @@ struct CustomTabView: View {
                 
                 // Чат
                 VStack(spacing: 8) {
+                    
                     if selectedTab == 2 {
-                        Image(.chatEmptyTab)
+                        chatImage
                             .renderingMode(.template)
                             .foregroundStyle(.iPink)
+                        
                     } else {
-                        Image(.chatEmptyTab)
+                        chatImage
                             .renderingMode(.template)
                             .foregroundStyle(.iDarkGray)
                     }
+                    
+                    
                     Text("Чат")
                         .font(.sub3)
                         .foregroundStyle(.iDarkGray)
                     
                 }
+                .customBadge(chatCount)
                 .frame(maxWidth: .infinity)
                 .contentShape(Rectangle())
                 .onTapGesture {
@@ -126,6 +140,6 @@ struct CustomTabView: View {
 }
 
 #Preview {
-    CustomTabView(selectedTab: .constant(0))
+    CustomTabView(selectedTab: .constant(0), chatCount: .constant(0))
     //.previewLayout(.sizeThatFits)
 }
