@@ -26,6 +26,7 @@
 		32AA59E32CCABB9F0080822C /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59E22CCABB9F0080822C /* NetworkModels.swift */; };
 		32AA59E72CCBFC170080822C /* SortButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59E62CCBFC170080822C /* SortButtonsView.swift */; };
 		32AA59E92CCC09510080822C /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59E82CCC09510080822C /* SortType.swift */; };
+		32AA59EB2CCC2DAF0080822C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59EA2CCC2DAF0080822C /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		32AA59E22CCABB9F0080822C /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
 		32AA59E62CCBFC170080822C /* SortButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonsView.swift; sourceTree = "<group>"; };
 		32AA59E82CCC09510080822C /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
+		32AA59EA2CCC2DAF0080822C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				32AA59D42CC7DBCF0080822C /* DoctorCellView.swift */,
 				32AA59DD2CC96B3E0080822C /* CustomTabView.swift */,
 				32AA59E62CCBFC170080822C /* SortButtonsView.swift */,
+				32AA59EA2CCC2DAF0080822C /* SearchBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				32AA59DE2CC96B3E0080822C /* CustomTabView.swift in Sources */,
 				32A04C552CC45BFC005BEF70 /* HomeView.swift in Sources */,
 				32A04C492CC45524005BEF70 /* ContentView.swift in Sources */,
+				32AA59EB2CCC2DAF0080822C /* SearchBarView.swift in Sources */,
 				32AA59A52CC529F80080822C /* HomeViewDocCell.swift in Sources */,
 				32AA59E32CCABB9F0080822C /* NetworkModels.swift in Sources */,
 				32AA59A92CC532D90080822C /* NetworkService.swift in Sources */,

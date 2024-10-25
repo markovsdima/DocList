@@ -11,14 +11,9 @@ struct ContentView: View {
         TabView(selection: $selectedTab) {
             
             VStack {
-                TextField("Поиск", text: $viewModel.searchText)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding([.horizontal, .top])
+                SearchBarView(searchText: $viewModel.searchText)
                 
                 SortButtonsView(selectedSort: $viewModel.sortType)
-                
                 
                 ScrollViewReader { proxy in
                     ScrollView {

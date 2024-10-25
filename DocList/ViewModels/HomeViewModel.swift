@@ -14,20 +14,18 @@ final class HomeViewModel: ObservableObject {
     @Published var doctors = doctorsListMock
     @Published var chatMessagesCount = 3
     @Published var searchText: String = ""
-    @Published var sortType: SortType = .rating
+    @Published var sortType: SortType = .priceDesc
     
-    // Отсортированный и отфильтрованный список докторов
-        var sortedAndFilteredDoctors: [DoctorCellModel] {
-            let sortedDoctors = sortDoctors(doctors)
-            
-            if searchText.isEmpty {
-                return sortedDoctors
-            } else {
-                return sortedDoctors.filter { $0.fullName.lowercased().contains(searchText.lowercased()) }
-            }
-        }
+    var sortedAndFilteredDoctors: [DoctorCellModel] {
+        let sortedDoctors = sortDoctors(doctors)
         
-        // Функция сортировки докторов в зависимости от выбранного типа сортировки
+        if searchText.isEmpty {
+            return sortedDoctors
+        } else {
+            return sortedDoctors.filter { $0.fullName.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
     private func sortDoctors(_ doctors: [DoctorCellModel]) -> [DoctorCellModel] {
         switch sortType {
         case .priceAsc:
@@ -48,7 +46,6 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
-
     
     func fetchDocList() async {
         do {
