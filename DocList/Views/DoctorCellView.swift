@@ -42,13 +42,23 @@ struct DoctorCellView: View {
                     .padding(.leading)
                     
                     Spacer()
+                    
+                    
                     Button(action: {}) {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .tint(.iSilver)
+                        if doctor.liked == false {
+                            Image(systemName: "heart")
+                                .resizable()
+                                .tint(.iSilver)
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                        } else {
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .tint(.iPink)
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                        }
                         
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
                     }
                 }
                 

@@ -99,7 +99,7 @@ fileprivate let homeViewMockJson = """
         "scientific_degree_label": "доктор медицинских наук",
         "category": 0,
         "category_label": "нет",
-        "is_favorite": false
+        "is_favorite": true
       },
       {
         "id": "0ff8be76-c9ce-4283-8fa0-fd724646ec8a",

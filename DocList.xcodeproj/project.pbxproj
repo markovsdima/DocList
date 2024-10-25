@@ -24,6 +24,8 @@
 		32AA59DE2CC96B3E0080822C /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59DD2CC96B3E0080822C /* CustomTabView.swift */; };
 		32AA59E02CC99DE10080822C /* CustomBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59DF2CC99DE10080822C /* CustomBadge.swift */; };
 		32AA59E32CCABB9F0080822C /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59E22CCABB9F0080822C /* NetworkModels.swift */; };
+		32AA59E72CCBFC170080822C /* SortButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59E62CCBFC170080822C /* SortButtonsView.swift */; };
+		32AA59E92CCC09510080822C /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59E82CCC09510080822C /* SortType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		32AA59DD2CC96B3E0080822C /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		32AA59DF2CC99DE10080822C /* CustomBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBadge.swift; sourceTree = "<group>"; };
 		32AA59E22CCABB9F0080822C /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
+		32AA59E62CCBFC170080822C /* SortButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonsView.swift; sourceTree = "<group>"; };
+		32AA59E82CCC09510080822C /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				32AA59AC2CC562EE0080822C /* DoctorDetailsView.swift */,
 				32AA59D42CC7DBCF0080822C /* DoctorCellView.swift */,
 				32AA59DD2CC96B3E0080822C /* CustomTabView.swift */,
+				32AA59E62CCBFC170080822C /* SortButtonsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 				32AA59A42CC529F80080822C /* HomeViewDocCell.swift */,
 				32AA59D62CC7DC730080822C /* DoctorCellModel.swift */,
 				32AA59E22CCABB9F0080822C /* NetworkModels.swift */,
+				32AA59E82CCC09510080822C /* SortType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 				32AA59D52CC7DBCF0080822C /* DoctorCellView.swift in Sources */,
 				32AA59DA2CC7E4CC0080822C /* Colors.swift in Sources */,
 				32AA59A72CC52F6B0080822C /* MockServer.swift in Sources */,
+				32AA59E92CCC09510080822C /* SortType.swift in Sources */,
 				32AA59AB2CC534230080822C /* HomeViewModel.swift in Sources */,
 				32AA59DC2CC7F3430080822C /* Fonts.swift in Sources */,
 				32AA59DE2CC96B3E0080822C /* CustomTabView.swift in Sources */,
@@ -237,6 +244,7 @@
 				32AA59E32CCABB9F0080822C /* NetworkModels.swift in Sources */,
 				32AA59A92CC532D90080822C /* NetworkService.swift in Sources */,
 				32AA59AD2CC562EE0080822C /* DoctorDetailsView.swift in Sources */,
+				32AA59E72CCBFC170080822C /* SortButtonsView.swift in Sources */,
 				32AA59D72CC7DC730080822C /* DoctorCellModel.swift in Sources */,
 				32A04C472CC45524005BEF70 /* DocListApp.swift in Sources */,
 			);
