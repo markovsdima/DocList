@@ -11,7 +11,7 @@ final class HomeViewModel: ObservableObject {
     private let networkService = NetworkService.shared
     
     @Published var state: State = .loading
-    @Published var doctors = doctorsListMock
+    @Published var doctors: [DoctorCellModel] = []
     @Published var chatMessagesCount = 3
     @Published var searchText: String = ""
     @Published var sortType: SortType = .priceDesc

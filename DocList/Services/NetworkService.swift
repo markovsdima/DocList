@@ -36,6 +36,10 @@ final class NetworkService {
         return doctors
     }
     
+    func getDocInfoFromResponse() async throws {
+        
+    }
+    
     // MARK: - Private Methods
     private func convertDocList(response: DocListResponse?) -> [DoctorCellModel]? {
         var doctors: [DoctorCellModel] = []

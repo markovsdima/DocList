@@ -12,7 +12,7 @@ struct HomeView: View {
 //        Text("Home View")
 //            .font(.largeTitle)
         List(doctorsListExample) { doctor in
-            NavigationLink(destination: DoctorDetailsView()) {
+            NavigationLink(destination: DoctorInfoView()) {
                 Text(doctor.fullName)
                     //.listRowSeparator(.hidden)
             }

@@ -6,7 +6,7 @@ struct DoctorCellView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white)
+                .fill(Color.iWhite)
                 .stroke(Color.iGray, lineWidth: 1)
             
             VStack(alignment: .leading) {
@@ -42,7 +42,6 @@ struct DoctorCellView: View {
                     .padding(.leading)
                     
                     Spacer()
-                    
                     
                     Button(action: {}) {
                         if doctor.liked == false {
