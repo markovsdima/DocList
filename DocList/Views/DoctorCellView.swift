@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct DoctorCellView: View {
-    @State var doctor: DoctorCellModel
+    @State var doctor: DoctorModel
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white)
+                .fill(Color.iWhite)
                 .stroke(Color.iGray, lineWidth: 1)
             
             VStack(alignment: .leading) {
@@ -20,21 +20,22 @@ struct DoctorCellView: View {
                     .frame(width: 50, height: 50)
                     .clipShape(.circle)
                     
-                    
                     VStack(alignment: .leading) {
                         Text(doctor.fullName)
                             .font(.h4)
+                            .foregroundStyle(.iBlack)
                             .lineSpacing(5)
                             .padding(.bottom, 4)
                         
                         RatingView(rating: Int(round(doctor.rating)))
                         
-                        Text("\(doctor.specialization)" + "・" + "стаж \(doctor.seniority) лет")
+                        Text("\(doctor.specialization)" + "・" + "стаж \(yearsText(for: doctor.seniority))")
                             .font(.sub2)
                             .foregroundStyle(.iDarkGray)
                         
                         Text("от \(String(doctor.price)) ₽")
                             .font(.h4)
+                            .foregroundStyle(.iBlack)
                             .padding(.top, 1)
                             .padding(.bottom, 8)
                         
@@ -43,38 +44,29 @@ struct DoctorCellView: View {
                     
                     Spacer()
                     
-                    
                     Button(action: {}) {
-                        if doctor.liked == false {
-                            Image(systemName: "heart")
-                                .resizable()
-                                .tint(.iSilver)
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
-                        } else {
-                            Image(systemName: "heart.fill")
-                                .resizable()
-                                .tint(.iPink)
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
-                        }
-                        
+                        Image(systemName: doctor.liked ? "heart.fill" : "heart")
+                            .resizable()
+                            .tint(doctor.liked ? .iPink : .iSilver)
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
                     }
                 }
                 
                 Button(action: {}) {
-                    Text("Записаться")
+                    Text(doctor.receptionAvailable ? "Записаться" : "Нет свободного расписания")
                         .font(.h4)
+                        .foregroundStyle(doctor.receptionAvailable ? .iWhite : .iBlack)
                         .frame(maxWidth: .infinity)
-                    
-                    
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
-                .tint(.iPink)
+                .tint(doctor.receptionAvailable ? .iPink : .iGray)
+                
             }
             .padding()
             .padding(.top, 4) // 16 + 4
+            
         }
         .padding(.leading)
         .padding(.trailing)
@@ -99,7 +91,6 @@ struct RatingView: View {
                 Image(.ratingStar)
                     .renderingMode(.template)
                     .foregroundColor(number <= rating ? onColor : offColor)
-                
             }
         }
         .padding(.bottom, 4)

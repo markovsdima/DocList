@@ -5,7 +5,7 @@ final class MockServer {
     private init() {}
     
     // MARK: - Private Properties
-    private let emulatedDelayInSeconds: Double = 0.5
+    private let emulatedDelayInSeconds: Double = 0.0
     
     // MARK: - Public Methods
     func getDocListData() async throws -> (Data, URLResponse) {

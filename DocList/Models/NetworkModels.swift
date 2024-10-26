@@ -25,6 +25,7 @@ struct DocListUser: Decodable, Equatable {
     let higherEducation: [DocHigherEducation]?
     let scientificDegreeLabel: String?
     let isFavorite: Bool
+    let workExperience: [WorkExperience]?
 }
 
 struct DocSpecialization: Decodable, Equatable {
@@ -35,4 +36,10 @@ struct DocSpecialization: Decodable, Equatable {
 struct DocHigherEducation: Decodable, Equatable {
     let id: Int
     let university: String
+}
+
+struct WorkExperience: Decodable, Equatable {
+    let id: Int
+    let organization: String
+    let position: String
 }

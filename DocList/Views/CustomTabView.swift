@@ -1,10 +1,3 @@
-//
-//  CustomTabView.swift
-//  DocList
-//
-//  Created by Dmitry Markovskiy on 23.10.2024.
-//
-
 import SwiftUI
 
 struct CustomTabView: View {
@@ -131,15 +124,14 @@ struct CustomTabView: View {
                     selectedTab = 3
                 }
                 
-                
             }
             .frame(height: tabBarHeight)
+            
         }
-        //.padding(.horizontal)
+        
     }
 }
 
 #Preview {
     CustomTabView(selectedTab: .constant(0), chatCount: .constant(0))
-    //.previewLayout(.sizeThatFits)
 }

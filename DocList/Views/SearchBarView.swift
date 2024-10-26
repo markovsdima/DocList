@@ -19,10 +19,10 @@ struct SearchBarView: View {
                 .stroke(Color.iGray, lineWidth: 1)
         )
         .frame(height: 36)
-        .padding([.horizontal, .top])
+        .padding([.horizontal])
         .padding(.bottom, 10)
+        
     }
-    
 }
 
 #Preview {
