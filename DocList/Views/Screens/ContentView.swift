@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: MainViewModel
     
     @State private var selectedTab = 0
     @State private var searchText = ""
@@ -11,12 +11,11 @@ struct ContentView: View {
     var body: some View {
         
         TabView(selection: $selectedTab) {
-            
             NavigationStack {
-                
                 VStack {
                     CustomNavBar(title: "Педиатры", onBack: {})
                         .padding(.horizontal)
+                    
                     SearchBarView(searchText: $viewModel.searchText)
                     
                     SortButtonsView(selectedSort: $viewModel.sortType)
@@ -36,13 +35,11 @@ struct ContentView: View {
                                             DoctorCellView(doctor: doctor)
                                         }
                                         .buttonStyle(PlainButtonStyle())
-                                        
                                     }
                                 }
                                 .padding(.top, 16)
                                 .padding(.bottom, 50)
                             }
-                            
                         }
                         .onChange(of: viewModel.sortType) {
                             withAnimation {
@@ -56,39 +53,27 @@ struct ContentView: View {
                         }
                     }
                     
-                    
                 }
                 .background(Color.iLightGray)
-                
-                
             }
             .tag(0)
-            
-            
             
             Text("Приёмы").tag(1)
             Text("Чат").tag(2)
             Text("Профиль").tag(3)
-            
-            
         }
         .accentColor(.iPink)
         .onAppear() {
-            //UITabBar.appearance().isTranslucent = false
             UITabBar.appearance().barTintColor = .iWhite
-            //UITabBar.appearance().backgroundImage = UIImage(named: "transparent")
             UITabBar.appearance().backgroundColor = .iWhite
-            //UITabBar.appearance().shadowImage = UIImage(named: "grayShadow")
-            
         }
         .overlay(alignment: .bottom) {
             CustomTabView(selectedTab: $selectedTab, chatCount: $viewModel.chatMessagesCount)
         }
         
-        
     }
 }
 
 #Preview {
-    ContentView(viewModel: HomeViewModel())
+    ContentView(viewModel: MainViewModel())
 }

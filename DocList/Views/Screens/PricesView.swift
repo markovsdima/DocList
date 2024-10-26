@@ -1,17 +1,10 @@
-//
-//  PricesView.swift
-//  DocList
-//
-//  Created by Dmitry Markovskiy on 26.10.2024.
-//
-
 import SwiftUI
 
 struct PricesView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @State var doctor: DoctorCellModel
+    @State var doctor: DoctorModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -108,13 +101,10 @@ struct PricesView: View {
                 .padding(.top, 6)
             }
             
-            
-            
             Spacer()
         }
         .padding(.horizontal)
         .background(.iLightGray)
-        
         .toolbar(.hidden, for: .navigationBar)
     }
 }

@@ -21,8 +21,8 @@ struct SearchBarView: View {
         .frame(height: 36)
         .padding([.horizontal])
         .padding(.bottom, 10)
+        
     }
-    
 }
 
 #Preview {

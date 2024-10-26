@@ -1,6 +1,6 @@
 import Foundation
 
-struct DoctorCellModel: Identifiable, Hashable {
+struct DoctorModel: Identifiable, Hashable {
     let id: String
     let fullName: String
     let specialization: String
@@ -21,7 +21,7 @@ struct DoctorCellModel: Identifiable, Hashable {
 
 
 
-let doctorCellDemo: DoctorCellModel = DoctorCellModel(
+let doctorCellDemo: DoctorModel = DoctorModel(
     id: "2b90c7ac-b588-4f12-9e89-99cbf4c33564",
     fullName: "Синявин \nАндрей Сергеевич",
     specialization: "Акушер",

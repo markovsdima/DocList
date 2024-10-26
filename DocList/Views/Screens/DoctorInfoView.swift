@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DoctorInfoView: View {
     
-    @State var doctor: DoctorCellModel
+    @State var doctor: DoctorModel
     @State var doctorInfo: DoctorInfoModel = doctorInfoDemo
     @Environment(\.dismiss) private var dismiss
     
@@ -71,11 +71,9 @@ struct DoctorInfoView: View {
                     .foregroundStyle(.iBlack)
                     .padding(.horizontal)
                 }
-                
             }
             .buttonStyle(PlainButtonStyle())
             .padding(.top, 16)
-            
             
             Text(doctorInfo.description ?? "")
                 .font(.system(size: 14))
@@ -83,20 +81,19 @@ struct DoctorInfoView: View {
                 .lineSpacing(10)
                 .padding(.top, 20)
             
-            
             Spacer()
+            
             Button(action: {}) {
                 Text(doctor.receptionAvailable ? "Записаться" : "Нет свободного расписания")
                     .font(.h4)
                     .foregroundStyle(doctor.receptionAvailable ? .iWhite : .iBlack)
                     .frame(maxWidth: .infinity)
-                
-                
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .tint(doctor.receptionAvailable ? .iPink : .iGray)
             .padding(.bottom, 28)
+            
         }
         .padding([.horizontal, .bottom])
         .background(Color(.iLightGray))

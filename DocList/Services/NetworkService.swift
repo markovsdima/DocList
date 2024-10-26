@@ -8,14 +8,14 @@ final class NetworkService {
     static let shared = NetworkService()
     private init() {}
     
-    // MARK: - Private Properties
+    // MARK: - Private properties
     private let session = URLSession.shared
     private let decoder = JSONDecoder()
     
     private let mockServer = MockServer.shared
     
-    // MARK: - Public Methods
-    func getDocListFromResponse() async throws -> [DoctorCellModel] {
+    // MARK: - Public methods
+    func getDocListFromResponse() async throws -> [DoctorModel] {
         let response: (Data, URLResponse)
         
         response = try await mockServer.getDocListData()
@@ -36,13 +36,10 @@ final class NetworkService {
         return doctors
     }
     
-    
-    // MARK: - Private Methods
-    private func convertDocList(response: DocListResponse?) -> [DoctorCellModel]? {
-        var doctors: [DoctorCellModel] = []
+    // MARK: - Private methods
+    private func convertDocList(response: DocListResponse?) -> [DoctorModel]? {
+        var doctors: [DoctorModel] = []
         guard let response else { return nil }
-        
-        
         
         doctors = response.data.users.map { doctor in
             
@@ -55,7 +52,7 @@ final class NetworkService {
             
             let minPrice = prices.min() ?? 0
             
-            return DoctorCellModel(
+            return DoctorModel(
                 id: doctor.id,
                 fullName: "\(doctor.lastName ?? "")\n\(doctor.firstName ?? "") \(doctor.patronymic ?? "")",
                 specialization: doctor.specialization?.first?.name ?? "",

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DoctorCellView: View {
-    @State var doctor: DoctorCellModel
+    @State var doctor: DoctorModel
     
     var body: some View {
         ZStack {
@@ -19,7 +19,6 @@ struct DoctorCellView: View {
                     }
                     .frame(width: 50, height: 50)
                     .clipShape(.circle)
-                    
                     
                     VStack(alignment: .leading) {
                         Text(doctor.fullName)
@@ -59,15 +58,15 @@ struct DoctorCellView: View {
                         .font(.h4)
                         .foregroundStyle(doctor.receptionAvailable ? .iWhite : .iBlack)
                         .frame(maxWidth: .infinity)
-                    
-                    
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 .tint(doctor.receptionAvailable ? .iPink : .iGray)
+                
             }
             .padding()
             .padding(.top, 4) // 16 + 4
+            
         }
         .padding(.leading)
         .padding(.trailing)
@@ -92,7 +91,6 @@ struct RatingView: View {
                 Image(.ratingStar)
                     .renderingMode(.template)
                     .foregroundColor(number <= rating ? onColor : offColor)
-                
             }
         }
         .padding(.bottom, 4)

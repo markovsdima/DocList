@@ -15,13 +15,12 @@ struct CustomNavBar: View {
             }
             Button(action: { onBack() }) {
                 Image(.backButton)
-                
-                
             }
         }
         .padding(.top, 12.5)
         .padding(.bottom, 24)
         .background(.iLightGray)
+        
     }
 }
 
