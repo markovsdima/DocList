@@ -17,6 +17,7 @@ struct DoctorInfoView: View {
                 
                 Text(doctorInfo.fullName)
                     .font(.h4)
+                    .foregroundStyle(.iBlack)
                     .lineSpacing(5)
                     .padding(.bottom, 4)
                 Spacer()
@@ -60,6 +61,7 @@ struct DoctorInfoView: View {
                     Text("от " + String(doctorInfo.textChatPrice ?? 0) + " ₽")
                         .font(.h4)
                 }
+                .foregroundStyle(.iBlack)
                 .padding(.horizontal)
                 .onTapGesture {
                     print("11111")
@@ -69,11 +71,22 @@ struct DoctorInfoView: View {
             
             Text(doctorInfo.description ?? "")
                 .font(.system(size: 14))
+                .foregroundStyle(.iBlack)
                 .lineSpacing(10)
                 .padding(.top, 20)
             
             
             Spacer()
+            Button(action: {}) {
+                Text("Записаться")
+                    .font(.h4)
+                    .frame(maxWidth: .infinity)
+                
+                
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .tint(.iPink)
         }
         .padding()
         .background(Color(.iLightGray))

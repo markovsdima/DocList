@@ -6,11 +6,13 @@ struct ContentView: View {
     
     @State private var selectedTab = 0
     @State private var searchText = ""
+    @State private var showDoctorInfo = false
     
     var body: some View {
-        NavigationStack {
-            TabView(selection: $selectedTab) {
-                
+        
+        TabView(selection: $selectedTab) {
+            
+            NavigationStack {
                 VStack {
                     SearchBarView(searchText: $viewModel.searchText)
                     
@@ -31,6 +33,7 @@ struct ContentView: View {
                                             DoctorCellView(doctor: doctor)
                                         }
                                         .buttonStyle(PlainButtonStyle())
+
                                     }
                                 }
                                 .padding(.top, 16)
@@ -52,28 +55,30 @@ struct ContentView: View {
                     
                     
                 }
-                .tag(0)
                 .background(Color.iLightGray)
                 
-                Text("Приёмы").tag(1)
-                Text("Чат").tag(2)
-                Text("Профиль").tag(3)
-                
             }
-            .accentColor(.iPink)
-            .onAppear() {
-                UITabBar.appearance().isTranslucent = false
-                UITabBar.appearance().barTintColor = .iWhite
-                UITabBar.appearance().backgroundImage = UIImage(named: "transparent")
-                UITabBar.appearance().shadowImage = UIImage(named: "grayShadow")
-                
-            }
-            .overlay(alignment: .bottom) {
-                CustomTabView(selectedTab: $selectedTab, chatCount: $viewModel.chatMessagesCount)
-            }
+            .tag(0)
+            
+            
+            Text("Приёмы").tag(1)
+            Text("Чат").tag(2)
+            Text("Профиль").tag(3)
+            
             
         }
-        
+        .accentColor(.iPink)
+        .onAppear() {
+            //UITabBar.appearance().isTranslucent = false
+            UITabBar.appearance().barTintColor = .iWhite
+            //UITabBar.appearance().backgroundImage = UIImage(named: "transparent")
+            UITabBar.appearance().backgroundColor = .iWhite
+            //UITabBar.appearance().shadowImage = UIImage(named: "grayShadow")
+            
+        }
+        .overlay(alignment: .bottom) {
+            CustomTabView(selectedTab: $selectedTab, chatCount: $viewModel.chatMessagesCount)
+        }
         
     }
 }
