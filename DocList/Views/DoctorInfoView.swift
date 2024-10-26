@@ -3,9 +3,13 @@ import SwiftUI
 struct DoctorInfoView: View {
     
     @State var doctorInfo: DoctorInfoModel = doctorInfoDemo
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
+        
         VStack(alignment: .leading) {
+            CustomNavBar(title: "Педиатор", onBack: { dismiss() })
+            
             HStack(spacing: 16) {
                 AsyncImage(url: URL(string: doctorInfo.avatar)) { image in
                     image.image?
@@ -23,6 +27,7 @@ struct DoctorInfoView: View {
                 Spacer()
             }
             .padding(.bottom, 20)
+            .padding(.top, 4)
             
             HStack {
                 Image(.seniority)
@@ -87,9 +92,11 @@ struct DoctorInfoView: View {
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .tint(.iPink)
+            .padding(.bottom, 28)
         }
-        .padding()
+        .padding([.horizontal, .bottom])
         .background(Color(.iLightGray))
+        .toolbar(.hidden, for: .navigationBar)
         
     }
 }

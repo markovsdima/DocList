@@ -13,7 +13,10 @@ struct ContentView: View {
         TabView(selection: $selectedTab) {
             
             NavigationStack {
+                
                 VStack {
+                    CustomNavBar(title: "Педиатры", onBack: {})
+                        .padding(.horizontal)
                     SearchBarView(searchText: $viewModel.searchText)
                     
                     SortButtonsView(selectedSort: $viewModel.sortType)
@@ -57,8 +60,10 @@ struct ContentView: View {
                 }
                 .background(Color.iLightGray)
                 
+                
             }
             .tag(0)
+            
             
             
             Text("Приёмы").tag(1)
@@ -79,6 +84,7 @@ struct ContentView: View {
         .overlay(alignment: .bottom) {
             CustomTabView(selectedTab: $selectedTab, chatCount: $viewModel.chatMessagesCount)
         }
+        
         
     }
 }

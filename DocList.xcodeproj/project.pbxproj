@@ -11,7 +11,6 @@
 		32A04C492CC45524005BEF70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A04C482CC45524005BEF70 /* ContentView.swift */; };
 		32A04C4B2CC45526005BEF70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A04C4A2CC45526005BEF70 /* Assets.xcassets */; };
 		32A04C4E2CC45526005BEF70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A04C4D2CC45526005BEF70 /* Preview Assets.xcassets */; };
-		32A04C552CC45BFC005BEF70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A04C542CC45BFC005BEF70 /* HomeView.swift */; };
 		32AA59A52CC529F80080822C /* HomeViewDocCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59A42CC529F80080822C /* HomeViewDocCell.swift */; };
 		32AA59A72CC52F6B0080822C /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59A62CC52F6B0080822C /* MockServer.swift */; };
 		32AA59A92CC532D90080822C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59A82CC532D90080822C /* NetworkService.swift */; };
@@ -29,6 +28,7 @@
 		32AA59EB2CCC2DAF0080822C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59EA2CCC2DAF0080822C /* SearchBarView.swift */; };
 		32AA59ED2CCC47280080822C /* DocInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59EC2CCC47280080822C /* DocInfoViewModel.swift */; };
 		32AA59EF2CCC4AE60080822C /* DoctorInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59EE2CCC4AE60080822C /* DoctorInfoModel.swift */; };
+		32AA59F12CCD22F60080822C /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AA59F02CCD22F60080822C /* CustomNavBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,6 @@
 		32A04C482CC45524005BEF70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		32A04C4A2CC45526005BEF70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32A04C4D2CC45526005BEF70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		32A04C542CC45BFC005BEF70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		32AA59A42CC529F80080822C /* HomeViewDocCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDocCell.swift; sourceTree = "<group>"; };
 		32AA59A62CC52F6B0080822C /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
 		32AA59A82CC532D90080822C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		32AA59EA2CCC2DAF0080822C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		32AA59EC2CCC47280080822C /* DocInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocInfoViewModel.swift; sourceTree = "<group>"; };
 		32AA59EE2CCC4AE60080822C /* DoctorInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorInfoModel.swift; sourceTree = "<group>"; };
+		32AA59F02CCD22F60080822C /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				32A04C482CC45524005BEF70 /* ContentView.swift */,
-				32A04C542CC45BFC005BEF70 /* HomeView.swift */,
 				32AA59AC2CC562EE0080822C /* DoctorInfoView.swift */,
 				32AA59D42CC7DBCF0080822C /* DoctorCellView.swift */,
 				32AA59DD2CC96B3E0080822C /* CustomTabView.swift */,
+				32AA59F02CCD22F60080822C /* CustomNavBar.swift */,
 				32AA59E62CCBFC170080822C /* SortButtonsView.swift */,
 				32AA59EA2CCC2DAF0080822C /* SearchBarView.swift */,
 			);
@@ -245,10 +245,10 @@
 				32AA59ED2CCC47280080822C /* DocInfoViewModel.swift in Sources */,
 				32AA59A72CC52F6B0080822C /* MockServer.swift in Sources */,
 				32AA59E92CCC09510080822C /* SortType.swift in Sources */,
+				32AA59F12CCD22F60080822C /* CustomNavBar.swift in Sources */,
 				32AA59AB2CC534230080822C /* HomeViewModel.swift in Sources */,
 				32AA59DC2CC7F3430080822C /* Fonts.swift in Sources */,
 				32AA59DE2CC96B3E0080822C /* CustomTabView.swift in Sources */,
-				32A04C552CC45BFC005BEF70 /* HomeView.swift in Sources */,
 				32A04C492CC45524005BEF70 /* ContentView.swift in Sources */,
 				32AA59EB2CCC2DAF0080822C /* SearchBarView.swift in Sources */,
 				32AA59EF2CCC4AE60080822C /* DoctorInfoModel.swift in Sources */,
