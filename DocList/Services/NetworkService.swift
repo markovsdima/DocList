@@ -36,26 +36,44 @@ final class NetworkService {
         return doctors
     }
     
-    func getDocInfoFromResponse() async throws {
-        
-    }
     
     // MARK: - Private Methods
     private func convertDocList(response: DocListResponse?) -> [DoctorCellModel]? {
         var doctors: [DoctorCellModel] = []
         guard let response else { return nil }
         
+        
+        
         doctors = response.data.users.map { doctor in
-            DoctorCellModel(
+            
+            let prices = [
+                doctor.videoChatPrice,
+                doctor.textChatPrice,
+                doctor.hospitalPrice,
+                doctor.homePrice
+            ].compactMap { $0 }.filter { $0 > 0 }
+            
+            let minPrice = prices.min() ?? 0
+            
+            return DoctorCellModel(
                 id: doctor.id,
                 fullName: "\(doctor.lastName ?? "")\n\(doctor.firstName ?? "") \(doctor.patronymic ?? "")",
                 specialization: doctor.specialization?.first?.name ?? "",
                 rating: doctor.ratingsRating ?? 0,
                 seniority: doctor.seniority ?? 0,
-                price: doctor.textChatPrice ?? 0,
-                receptionAvailable: true,
+                price: minPrice,
+                videoChatPrice: doctor.videoChatPrice,
+                textChatPrice: doctor.textChatPrice,
+                hospitalPrice: doctor.hospitalPrice,
+                homePrice: doctor.homePrice,
+                receptionAvailable: (doctor.nearestReceptionTime != nil) ? true : false,
                 liked: doctor.isFavorite,
-                avatar: doctor.avatar ?? "")
+                avatar: doctor.avatar ?? "",
+                scientificDegreeLabel: doctor.scientificDegreeLabel ?? "",
+                educationTypeLabel: doctor.higherEducation?.first?.university ?? "",
+                workplace: doctor.workExperience?.first?.organization ?? ""
+                
+            )
         }
         
         return doctors

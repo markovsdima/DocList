@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DoctorInfoView: View {
     
+    @State var doctor: DoctorCellModel
     @State var doctorInfo: DoctorInfoModel = doctorInfoDemo
     @Environment(\.dismiss) private var dismiss
     
@@ -11,7 +12,7 @@ struct DoctorInfoView: View {
             CustomNavBar(title: "Педиатор", onBack: { dismiss() })
             
             HStack(spacing: 16) {
-                AsyncImage(url: URL(string: doctorInfo.avatar)) { image in
+                AsyncImage(url: URL(string: doctor.avatar)) { image in
                     image.image?
                         .resizable()
                         .scaledToFill()
@@ -19,11 +20,11 @@ struct DoctorInfoView: View {
                 .frame(width: 50, height: 50)
                 .clipShape(.circle)
                 
-                Text(doctorInfo.fullName)
+                Text(doctor.fullName)
                     .font(.h4)
                     .foregroundStyle(.iBlack)
                     .lineSpacing(5)
-                    .padding(.bottom, 4)
+                
                 Spacer()
             }
             .padding(.bottom, 20)
@@ -31,48 +32,50 @@ struct DoctorInfoView: View {
             
             HStack {
                 Image(.seniority)
-                Text("Опыт работы: \(doctorInfo.seniority) лет")
+                Text("Опыт работы: \(yearsText(for: doctor.seniority))")
                     .font(.system(size: 14))
                     .foregroundStyle(.iDarkGray)
             }
             HStack {
                 Image(.scientificDegree)
-                Text("\(doctorInfo.scientificDegreeLabel)")
+                Text("\(doctor.scientificDegreeLabel)")
                     .font(.system(size: 14))
                     .foregroundStyle(.iDarkGray)
             }
             HStack {
                 Image(.educationType)
-                Text("\(doctorInfo.educationTypeLabel)")
+                Text("\(doctor.educationTypeLabel)")
                     .font(.system(size: 14))
                     .foregroundStyle(.iDarkGray)
             }
             HStack {
                 Image(.workplace)
-                Text("\(doctorInfo.workplace)")
+                Text("\(doctor.workplace)")
                     .font(.system(size: 14))
                     .foregroundStyle(.iDarkGray)
             }
             
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.iWhite)
-                    .stroke(Color.iGray, lineWidth: 1)
-                    .frame(height: 60)
-                HStack {
-                    Text("Стоимость услуг")
-                        .font(.h4)
-                    Spacer()
-                    Text("от " + String(doctorInfo.textChatPrice ?? 0) + " ₽")
-                        .font(.h4)
+            NavigationLink(destination: PricesView(doctor: doctor)) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(.iWhite)
+                        .stroke(Color.iGray, lineWidth: 1)
+                        .frame(height: 60)
+                    HStack {
+                        Text("Стоимость услуг")
+                            .font(.h4)
+                        Spacer()
+                        Text("от " + String(doctor.price) + " ₽")
+                            .font(.h4)
+                    }
+                    .foregroundStyle(.iBlack)
+                    .padding(.horizontal)
                 }
-                .foregroundStyle(.iBlack)
-                .padding(.horizontal)
-                .onTapGesture {
-                    print("11111")
-                }
+                
             }
+            .buttonStyle(PlainButtonStyle())
             .padding(.top, 16)
+            
             
             Text(doctorInfo.description ?? "")
                 .font(.system(size: 14))
@@ -83,15 +86,16 @@ struct DoctorInfoView: View {
             
             Spacer()
             Button(action: {}) {
-                Text("Записаться")
+                Text(doctor.receptionAvailable ? "Записаться" : "Нет свободного расписания")
                     .font(.h4)
+                    .foregroundStyle(doctor.receptionAvailable ? .iWhite : .iBlack)
                     .frame(maxWidth: .infinity)
                 
                 
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
-            .tint(.iPink)
+            .tint(doctor.receptionAvailable ? .iPink : .iGray)
             .padding(.bottom, 28)
         }
         .padding([.horizontal, .bottom])
@@ -102,5 +106,5 @@ struct DoctorInfoView: View {
 }
 
 #Preview {
-    DoctorInfoView()
+    DoctorInfoView(doctor: doctorCellDemo)
 }

@@ -10,6 +10,7 @@ struct CustomNavBar: View {
                 Spacer()
                 Text(title)
                     .font(.h3)
+                    .foregroundStyle(.iBlack)
                 Spacer()
             }
             Button(action: { onBack() }) {
@@ -20,7 +21,6 @@ struct CustomNavBar: View {
         }
         .padding(.top, 12.5)
         .padding(.bottom, 24)
-        //.padding(.horizontal)
         .background(.iLightGray)
     }
 }

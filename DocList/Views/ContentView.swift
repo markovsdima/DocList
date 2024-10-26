@@ -32,11 +32,11 @@ struct ContentView: View {
                                     .id("scrollToTopAnchor")
                                 LazyVStack(spacing: 16) {
                                     ForEach(viewModel.sortedAndFilteredDoctors) { doctor in
-                                        NavigationLink(destination: DoctorInfoView()) {
+                                        NavigationLink(destination: DoctorInfoView(doctor: doctor)) {
                                             DoctorCellView(doctor: doctor)
                                         }
                                         .buttonStyle(PlainButtonStyle())
-
+                                        
                                     }
                                 }
                                 .padding(.top, 16)

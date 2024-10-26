@@ -18,6 +18,16 @@ final class MockServer {
         return (data, URLResponse())
     }
     
+    func getDocInfoData() async throws -> (Data, URLResponse) {
+        guard let data = homeViewMockJson.data(using: .utf8) else {
+            return (Data(), URLResponse())
+        }
+        
+        try await Task.sleep(nanoseconds: secondsToNano(seconds: emulatedDelayInSeconds))
+        
+        return (data, URLResponse())
+    }
+    
     // MARK: - Private Methods
     private func secondsToNano(seconds: Double) -> UInt64 {
         return UInt64(seconds * 1_000_000_000)
